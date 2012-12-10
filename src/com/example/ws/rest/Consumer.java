@@ -16,7 +16,7 @@ public class Consumer {
 		DefaultHttpClient client = new DefaultHttpClient();
 		
 		HttpGet get = new HttpGet("http://localhost:8080/ExampleJersey/example/getPerson");
-		get.addHeader("accept", "application/json");
+		get.addHeader("accept", "application/xml");
 
 		HttpResponse response = client.execute(get);
 		InputStream content = response.getEntity().getContent();
@@ -29,7 +29,7 @@ public class Consumer {
 		content.close();
 		
 		//Serviçe: getPessoa/{nome}
-		get = new HttpGet("http://localhost:8080/ExampleRestEasy/example/getPerson/Peter");
+		get = new HttpGet("http://localhost:8080/ExampleJersey/example/getPerson/Peter");
 		get.addHeader("accept", "text/plain");
 
 		response = client.execute(get);
@@ -43,7 +43,7 @@ public class Consumer {
 		content.close();
 
 		//Serviçe: inserirPessoa
-		HttpPost post = new HttpPost("http://localhost:8080/ExampleRestEasy/example/insertPerson");
+		HttpPost post = new HttpPost("http://localhost:8080/ExampleJersey/example/insertPerson");
 		post.addHeader("content-type", "application/xml");
 		post.addHeader("accept", "application/json");
 		
